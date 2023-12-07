@@ -50,35 +50,32 @@ public class SwordRPC {
         encoder.dateEncodingStrategy = .secondsSince1970
     }
 
-    public func connect() {
+    public func connect(_ ipcPort: Int) throws {
         let tempDir = NSTemporaryDirectory()
 
-        for ipcPort in 0 ..< 10 {
-            let socketPath = tempDir + "discord-ipc-\(ipcPort)"
-            let localClient = ConnectionClient(pipe: socketPath)
-            do {
-                try localClient.connect()
+        let socketPath = tempDir + "discord-ipc-\(ipcPort)"
+        let localClient = ConnectionClient(pipe: socketPath)
+        do {
+            try localClient.connect()
 
-                // Set handlers
-                localClient.textHandler = handleEvent
-                localClient.disconnectHandler = handleEvent
+            // Set handlers
+            localClient.textHandler = handleEvent
+            localClient.disconnectHandler = handleEvent
 
-                client = localClient
-                // Attempt handshaking
-                try handshake()
-            } catch {
-                // If an error occurrs, we should not log it.
-                // We must iterate through all 10 ports before logging.
-                continue
-            }
-
-            subscribe(.join)
-            subscribe(.spectate)
-            subscribe(.joinRequest)
-            return
+            client = localClient
+            // Attempt handshaking
+            try handshake()
+        } catch {
+            // If an error occurrs, we should not log it.
+            // We must iterate through all 10 ports before logging.
+            print("[SwordRPC] Discord not detected")
+            throw NSError()
         }
 
-        print("[SwordRPC] Discord not detected")
+        subscribe(.join)
+        subscribe(.spectate)
+        subscribe(.joinRequest)
+        return
     }
 
     /// Replies to an activity join request.
