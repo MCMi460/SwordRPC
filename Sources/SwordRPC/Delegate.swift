@@ -10,7 +10,8 @@ public protocol SwordRPCDelegate: AnyObject {
     /// Called back when our RPC connects to Discord.
     /// - Parameter rpc: The current RPC to work with.
     func rpcDidConnect(
-        _ rpc: SwordRPC
+        _ rpc: SwordRPC,
+        data: [String: Any]
     )
 
     /// Called when Discord disconnects our RPC.

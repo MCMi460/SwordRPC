@@ -64,7 +64,7 @@ extension SwordRPC {
             delegate?.rpcDidReceiveJoinRequest(self, user: joinRequest, secret: secret)
 
         case .ready:
-            delegate?.rpcDidConnect(self)
+            delegate?.rpcDidConnect(self, data: data)
             startPresenceUpdater()
 
         case .spectate:
