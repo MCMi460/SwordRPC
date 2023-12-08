@@ -10,6 +10,10 @@ import Combine
 import Foundation
 import os.log
 
+enum SwordError: Error {
+    case runtimeError(String)
+}
+
 public class SwordRPC {
     // MARK: App Info
 
@@ -68,8 +72,7 @@ public class SwordRPC {
         } catch {
             // If an error occurrs, we should not log it.
             // We must iterate through all 10 ports before logging.
-            print("[SwordRPC] Discord not detected")
-            throw NSError()
+            throw SwordError.runtimeError("[SwordRPC] Discord not detected")
         }
 
         subscribe(.join)
