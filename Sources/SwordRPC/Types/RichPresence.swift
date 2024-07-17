@@ -13,9 +13,10 @@ public struct RichPresence: Encodable {
     public var details = ""
     public var instance = true
     public var party = Party()
-    public var secrets = Secrets()
+    public var secrets: Secrets?
     public var state = ""
     public var timestamps = Timestamps()
+    public var buttons: [Button]?
 
     public init() {}
 }
@@ -78,5 +79,10 @@ public extension RichPresence {
         public var join: String?
         public var match: String?
         public var spectate: String?
+    }
+    
+    struct Button: Encodable {
+        public var label: String
+        public var url: String
     }
 }
