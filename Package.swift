@@ -26,5 +26,11 @@ let package = Package(
                 .product(name: "NIOPosix", package: "swift-nio"),
             ]
         ),
+        .testTarget(
+            name: "SwordRPCTests",
+            dependencies: [
+                "SwordRPC",
+            ]
+        ),
     ]
 )
