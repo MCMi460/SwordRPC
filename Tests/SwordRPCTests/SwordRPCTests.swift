@@ -37,13 +37,13 @@ class SwordRPC_DiscordTests: XCTestCase, SwordRPCDelegate {
         // Create timestamps.
         presence.timestamps.start = Date()
         presence.timestamps.end = Date(timeIntervalSinceNow: 240)
-        
+
         // Add button.
         presence.buttons = [
             RichPresence.Button(
                 label: "Apple Music",
                 url: "https://music.apple.com/us/album/love-me-again/1440813192?i=1440813380"
-            )
+            ),
         ]
 
         // Push over RPC to client.

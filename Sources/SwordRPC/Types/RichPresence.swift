@@ -79,10 +79,10 @@ public extension RichPresence {
         public var join: String?
         public var match: String?
         public var spectate: String?
-        
+
         public init() {}
     }
-    
+
     struct Button: Encodable {
         public var label: String
         public var url: String
