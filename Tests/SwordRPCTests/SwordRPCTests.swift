@@ -24,6 +24,9 @@ class SwordRPC_DiscordTests: XCTestCase, SwordRPCDelegate {
         // Create Rich Presence object.
         var presence = RichPresence()
 
+        // Set to listening status
+        presence.type = .listening
+
         // Assign state & details.
         presence.state = "Love Me Again"
         presence.details = "John Newman – Tribute"

@@ -33,3 +33,14 @@ public enum JoinReply {
     case yes
     case ignore
 }
+
+/// Enum for Activity Types
+/// https://discord.com/developers/docs/game-sdk/activities#data-models-activitytype-enum
+public enum ActivityType: Int, Codable {
+    case playing = 0
+    // case streaming = 1
+    case listening = 2
+    case watching = 3
+    // case custom = 4
+    case competing = 5
+}
