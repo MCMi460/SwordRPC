@@ -27,13 +27,18 @@ class SwordRPC_DiscordTests: XCTestCase, SwordRPCDelegate {
         // Set to listening status
         presence.type = .listening
 
-        // Assign state & details.
-        presence.state = "Love Me Again"
-        presence.details = "John Newman – Tribute"
+        // Assign details & state.
+        presence.details = "Love Me Again"
+        presence.details_url = "https://music.apple.com/us/album/love-me-again/1440813192?i=1440813380"
+        presence.state = "John Newman"
+        presence.state_url = "https://music.apple.com/us/artist/john-newman/649230577"
+        
+        // Show song title instead of "Music."
+        presence.status_display_type = .details
 
         // Assign image properties.
         presence.assets.largeImage = "big_sur_logo"
-        presence.assets.largeText = "Apple Music"
+        presence.assets.largeText = "Tribute" // This is used as the album text in the "Listening" status.
         presence.assets.smallImage = "play"
         presence.assets.smallText = "Playing"
 
