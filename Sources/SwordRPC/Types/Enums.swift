@@ -50,3 +50,14 @@ public enum ActivityType: Int, Codable {
     /// "Competing in Arena World Champions"
     case competing = 5
 }
+
+/// The displayed status types.
+/// https://discord.com/developers/docs/events/gateway-events#activity-object-status-display-types
+public enum StatusDisplayType: Int, Codable {
+    /// "Playing <name>"
+    case name = 0
+    /// "Playing <state>"
+    case state = 1
+    /// "Playing <details>"
+    case details = 2
+}
