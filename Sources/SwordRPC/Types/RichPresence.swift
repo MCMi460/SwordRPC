@@ -11,16 +11,31 @@ import Foundation
 public struct RichPresence: Encodable {
     public var assets = Assets()
     public var details = ""
-    public var details_url: String?
+    public var detailsUrl: String?
     public var instance = true
     public var party = Party()
     public var secrets: Secrets?
     public var state = ""
-    public var state_url: String?
+    public var stateUrl: String?
     public var timestamps = Timestamps()
     public var buttons: [Button]?
     public var type: ActivityType?
-    public var status_display_type: StatusDisplayType?
+    public var statusDisplayType: StatusDisplayType?
+    
+    enum CodingKeys: String, CodingKey {
+        case assets
+        case details
+        case detailsUrl = "details_url"
+        case instance
+        case party
+        case secrets
+        case state
+        case stateUrl = "state_url"
+        case timestamps
+        case buttons
+        case type
+        case statusDisplayType = "status_display_type"
+    }
 
     public init() {}
 }
